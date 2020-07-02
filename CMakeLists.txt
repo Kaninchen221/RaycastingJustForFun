@@ -5,17 +5,22 @@ project(Rjff)
 
 add_executable(${PROJECT_NAME} 
   ./src/main.cpp
-  ./src/line.h
-  ./src/line.cpp
-  ./src/point.h
-  ./src/utils.h
-  ./src/utils.cpp
-  ./src/map.h
-  ./src/map.cpp
-  ./src/player.h
-  ./src/player.cpp
-  ./src/randomizer.h
-  ./src/randomizer.cpp
+  ./src/StaticLine.h
+  ./src/StaticLine.cpp
+  ./src/Point.h
+  ./src/Utils.h
+  ./src/Utils.cpp
+  ./src/Map.h
+  ./src/Map.cpp
+  ./src/Player.h
+  ./src/Player.cpp
+  ./src/Randomizer.h
+  ./src/Randomizer.cpp
+  ./src/Error.h
+  ./src/Line.h
+  ./src/Line.cpp
+  ./src/DrawableLine.h
+  ./src/DrawableLine.cpp
 )
 
 # Print helpful info
