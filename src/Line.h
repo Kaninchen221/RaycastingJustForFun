@@ -28,8 +28,8 @@ namespace rj {
 
 	private:
 
-	}; /// class Line
+	};
 
-} /// namespace rj
+}
 
 #endif // !LINE_H

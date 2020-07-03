@@ -31,8 +31,8 @@ namespace rj {
 		sf::Vector2f firstPoint;
 		sf::Vector2f secondPoint;
 
-	}; /// class Line
+	};
 
-} /// namespace rj
+}
 
 #endif /// !STATICLINE_H

@@ -39,6 +39,6 @@ namespace rj {
 		verticies[1].position = in.getSecondPoint();
 	}
 
-} /// namespace rj
+}
 
 #endif /// !DRAWABLELINE_H
