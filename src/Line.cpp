@@ -21,4 +21,14 @@ namespace rj {
 		return staticLine;
 	}
 
+	void Line::setLength(const float & value) noexcept
+	{
+		secondPoint = Point(value, 0.f);
+	}
+
+	float Line::getLength() const noexcept
+	{
+		return secondPoint.x;
+	}
+
 } /// namespace rj

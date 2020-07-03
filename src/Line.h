@@ -7,7 +7,7 @@
 
 namespace rj {
 
-	struct Line : public StaticLine, public sf::Transformable {
+	struct Line : private StaticLine, public sf::Transformable {
 
 		Line() = default;
 		Line(const Line& other) = default;
@@ -21,9 +21,12 @@ namespace rj {
 		Point getFirstPoint() const noexcept;
 		Point getSecondPoint() const noexcept;
 
+		void setLength(const float& value) noexcept;
+		float getLength() const noexcept;
+
 		StaticLine toStaticLine() const noexcept;
 
-	protected:
+	private:
 
 	}; /// class Line
 
