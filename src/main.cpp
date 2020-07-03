@@ -15,9 +15,6 @@
 
 int main()
 {
-	rj::Line line;
-	auto func = std::bind(&rj::StaticLine::setFirstPoint, &line, sf::Vector2f(0.f, 0.f));
-	func();
 
 	rj::Randomizer randomizer(std::to_string(std::time(0)));
 
