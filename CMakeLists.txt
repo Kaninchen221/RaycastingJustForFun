@@ -3,42 +3,40 @@ cmake_minimum_required(VERSION 3.11)
 # Project Rjff - RaycastingJustForFun
 project(Rjff)
 
-add_executable(${PROJECT_NAME} 
-  ./src/main.cpp
-  ./src/StaticLine.h
-  ./src/StaticLine.cpp
-  ./src/Point.h
-  ./src/Utils.h
-  ./src/Utils.cpp
-  ./src/Map.h
-  ./src/Map.cpp
-  ./src/Player.h
-  ./src/Player.cpp
-  ./src/Randomizer.h
-  ./src/Randomizer.cpp
-  ./src/Error.h
-  ./src/Line.h
-  ./src/Line.cpp
-  ./src/DrawableLine.h
-  ./src/DrawableLine.cpp
+# Create rjff library
+add_library(rjff_lib STATIC
+	include/StaticLine.h
+	src/StaticLine.cpp
+	include/Line.h
+	src/Line.cpp
 )
 
-# Print helpful info
-message(STATUS "*** CMakeList dir : " ${CMAKE_SOURCE_DIR} " ***")
-message(STATUS "*** C++ compiler path: " ${CMAKE_CXX_COMPILER} " ***")
-message(STATUS "*** C compiler path: " ${CMAKE_C_COMPILER} " ***")
+#target_include_directories(rjff_lib
+#	PUBLIC
+#		${PROJECT_SOURCE_DIR}/include
+#)
 
 # Set linker language property
-set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(rjff_lib PROPERTIES LINKER_LANGUAGE CXX)
 
 # Set CPP standard as c++17
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+target_compile_features(rjff_lib PRIVATE cxx_std_17)
 
+# Create rjff_tests executable project for rjff library
+add_executable(rjff_tests
+	tests/src/main.cpp
+)
+
+# Set linker language property
+set_target_properties(rjff_tests PROPERTIES LINKER_LANGUAGE CXX)
+
+# Set CPP standard as c++17
+target_compile_features(rjff_tests PRIVATE cxx_std_17)
+
+# Include FetchContent
 include(FetchContent)
 
-###########################
-# SFML
-
+# Fetch SFML
 message(STATUS "*** Fetch SFML ***")
 
 FetchContent_Declare(
@@ -54,34 +52,57 @@ set(SFML_INCLUDE_DIRS PRIVATE
   build/_deps/sfml-src/include
 )
 
-# SFML
-###########################
+# Fetch GoogleTest
 
-###########################
-# Set dependencies
+message(STATUS "*** Fetch GoogleTest ***")
 
-# Set Zinet_Core to depend sfml
-add_dependencies(${PROJECT_NAME} sfml-system sfml-window sfml-graphics sfml-audio sfml-network)
+FetchContent_Declare(
+  GTEST
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG master
+)
 
-# Set dependencies
-###########################
+FetchContent_MakeAvailable(GTEST)
 
-###########################
-# Include directories
+# Create var contains Google Mock include dir
+set(GOOGLEMOCK_INCLUDE_DIRS PRIVATE 
+  build/_deps/gtest-src/googlemock/include
+)
 
-message(STATUS "*** Include directories ***")
+# Create var contains Google Test include dir
+set(GOOGLETEST_INCLUDE_DIRS PRIVATE 
+  build/_deps/gtest-src/googletest/include
+)
 
-target_include_directories(${PROJECT_NAME} ${SFML_INCLUDE_DIRS})
+# Include dirs for rjff_lib
+target_include_directories(rjff_lib 
+	${SFML_INCLUDE_DIRS}
+)
 
-# Include directories
-###########################
+# Include dirs for rjff_tests
+target_include_directories(rjff_tests 
+	${SFML_INCLUDE_DIRS} 
+	${GOOGLEMOCK_INCLUDE_DIRS}
+	${GOOGLETEST_INCLUDE_DIRS}
+)
 
-###########################
-# Link libs
+# Dependencies for rjff_lib
+add_dependencies(rjff_lib sfml-system sfml-window sfml-graphics sfml-audio sfml-network)
 
-message(STATUS "*** Link directories ***")
+# Dependencies for rjff_tests
+add_dependencies(rjff_tests rjff_lib gtest)
 
-target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-audio sfml-system sfml-network sfml-window)
+# Link libraries for rjff_lib
+target_link_libraries(rjff_lib 
+	sfml-system 
+	sfml-window 
+	sfml-graphics 
+	sfml-audio 
+	sfml-network
+)
 
-# Link Libs
-###########################
+# Link libraries for rjff_tests
+target_link_libraries(rjff_tests
+	rjff_lib
+	gtest
+)
