@@ -3,6 +3,17 @@ cmake_minimum_required(VERSION 3.11)
 # Project Rjff - RaycastingJustForFun
 project(Rjff)
 
+# Set cache var contains rjff_lib type
+set(RJFF_LIB_TYPE "STATIC" CACHE STRING "")
+
+# If RJFF_LIB_TYPE is STATIC then add RJFF_LIB_TYPE_STATIC global macro
+if(RJFF_LIB_TYPE STREQUAL "STATIC")
+
+	add_compile_definitions(rjff_lib RJFF_LIB_TYPE_STATIC)
+
+endif()
+
+
 # Organize output directories
 # https://stackoverflow.com/questions/6594796/how-do-i-make-cmake-output-into-a-bin-dir
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -10,7 +21,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Create rjff library
-add_library(rjff_lib STATIC
+add_library(rjff_lib ${RJFF_LIB_TYPE}
+	include/Core.h
 	include/StaticLine.h
 	src/StaticLine.cpp
 	include/Line.h
