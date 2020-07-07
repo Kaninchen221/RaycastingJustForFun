@@ -17,6 +17,9 @@ add_library(rjff_lib STATIC
 	src/Line.cpp
 )
 
+# Create rjff library include dir
+set(RJFF_LIB_INCLUDE_DIR PRIVATE include)
+
 # Set linker language property
 set_target_properties(rjff_lib PROPERTIES LINKER_LANGUAGE CXX)
 
@@ -26,6 +29,8 @@ target_compile_features(rjff_lib PRIVATE cxx_std_17)
 # Create rjff_tests executable project for rjff library
 add_executable(rjff_tests
 	tests/src/main.cpp
+	tests/src/StaticLineTest.h
+	tests/src/StaticLineTest.cpp
 )
 
 # Set linker language property
@@ -83,6 +88,7 @@ target_include_directories(rjff_lib
 
 # Include dirs for rjff_tests
 target_include_directories(rjff_tests 
+	${RJFF_LIB_INCLUDE_DIR}
 	${SFML_INCLUDE_DIRS} 
 	${GOOGLEMOCK_INCLUDE_DIRS}
 	${GOOGLETEST_INCLUDE_DIRS}
