@@ -3,6 +3,12 @@ cmake_minimum_required(VERSION 3.11)
 # Project Rjff - RaycastingJustForFun
 project(Rjff)
 
+# Organize output directories
+# https://stackoverflow.com/questions/6594796/how-do-i-make-cmake-output-into-a-bin-dir
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 # Create rjff library
 add_library(rjff_lib STATIC
 	include/StaticLine.h
@@ -10,11 +16,6 @@ add_library(rjff_lib STATIC
 	include/Line.h
 	src/Line.cpp
 )
-
-#target_include_directories(rjff_lib
-#	PUBLIC
-#		${PROJECT_SOURCE_DIR}/include
-#)
 
 # Set linker language property
 set_target_properties(rjff_lib PROPERTIES LINKER_LANGUAGE CXX)
@@ -60,6 +61,7 @@ FetchContent_Declare(
   GTEST
   GIT_REPOSITORY https://github.com/google/googletest.git
   GIT_TAG master
+  SOURCE_DIR _deps/gtest-src
 )
 
 FetchContent_MakeAvailable(GTEST)
