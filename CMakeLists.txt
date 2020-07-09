@@ -23,10 +23,15 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # Create rjff library
 add_library(rjff_lib ${RJFF_LIB_TYPE}
 	include/Core.h
+	include/Point.h
 	include/StaticLine.h
 	src/StaticLine.cpp
 	include/Line.h
 	src/Line.cpp
+	include/MathUtility.h
+	src/MathUtility.cpp
+	include/Utility.h
+	src/Utility.cpp
 )
 
 # Create rjff library include dir
@@ -43,6 +48,12 @@ add_executable(rjff_tests
 	tests/src/main.cpp
 	tests/src/StaticLineTest.h
 	tests/src/StaticLineTest.cpp
+	tests/src/LineTest.h
+	tests/src/LineTest.cpp
+	tests/src/MathUtilityTest.h
+	tests/src/MathUtilityTest.cpp
+	tests/src/UtilityTest.h
+	tests/src/UtilityTest.cpp
 )
 
 # Set linker language property
