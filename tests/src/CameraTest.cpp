@@ -46,6 +46,16 @@ TEST_F(CameraTest, raysCountTest) {
 	ASSERT_EQ(raysCountTestValue, cameraRaysCount);
 }
 
+TEST_F(CameraTest, raysLength) {
+
+	float raysLengthTestValue = 120.215f;
+
+	camera.setRaysLength(raysLengthTestValue);
+	auto cameraRaysLength = camera.getRaysLength();
+
+	ASSERT_FLOAT_EQ(raysLengthTestValue, cameraRaysLength);
+}
+
 TEST_F(CameraTest, rotationTest) {
 
 	float rotateTestValue = 45.21f;

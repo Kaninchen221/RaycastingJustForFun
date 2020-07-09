@@ -29,6 +29,9 @@ namespace rj {
 		void setRaysCount(size_t count) noexcept;
 		size_t getRaysCount() const noexcept;
 
+		void setRaysLength(float length) noexcept;
+		float getRaysLength() const noexcept;
+
 		void rotate(float degrees) noexcept;
 
 		void setRotation(float degrees) noexcept;
@@ -39,6 +42,7 @@ namespace rj {
 		float horizontalFieldOfView = 0.f;
 		Point position = { 0.f, 0.f };
 		size_t raysCount = 0u;
+		float raysLength = 0.f;
 		float rotationInDegrees = 0.f;
 
 	};

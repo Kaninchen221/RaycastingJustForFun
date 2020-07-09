@@ -43,6 +43,16 @@ namespace rj {
 		return raysCount;
 	}
 
+	void Camera::setRaysLength(float length) noexcept
+	{
+		raysLength = length;
+	}
+
+	float Camera::getRaysLength() const noexcept
+	{
+		return raysLength;
+	}
+
 	void Camera::rotate(float degrees) noexcept
 	{
 		rotationInDegrees += degrees;
