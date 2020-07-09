@@ -32,6 +32,8 @@ add_library(rjff_lib ${RJFF_LIB_TYPE}
 	src/MathUtility.cpp
 	include/Utility.h
 	src/Utility.cpp
+	include/Randomizer.h
+	src/Randomizer.cpp
 )
 
 # Create rjff library include dir
