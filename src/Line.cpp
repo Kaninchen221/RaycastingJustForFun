@@ -2,6 +2,7 @@
 
 #include "../include/MathUtility.h"
 #include "../include/Utility.h"
+#include "../include/Point.h"
 
 #include <cmath>
 
@@ -48,7 +49,7 @@ namespace rj {
 
 	float Line::getM() const noexcept
 	{
-		return m;
+		return m + (1.f * static_cast<float>(recurrence));
 	}
 
 	float Line::getB() const noexcept
