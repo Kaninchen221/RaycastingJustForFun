@@ -58,7 +58,7 @@ namespace rj {
 		auto lhsRotation = lhs.getRotation();
 		auto rhsRotation = rhs.getRotation();
 
-		if (lhsRotation == rhsRotation) {
+		if (isParallel(lhs, rhs)) {
 			return std::nullopt;
 		}
 
