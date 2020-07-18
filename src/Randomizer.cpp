@@ -1,6 +1,7 @@
 #include "../include/Randomizer.h"
 
 #include <functional>
+#include <stdexcept>
 
 namespace rj {
 
@@ -13,7 +14,7 @@ namespace rj {
 	int Randomizer::integer(const int &min, const int &max)
 	{
 		if (min > max)
-			return 0;
+			throw std::invalid_argument("min arg is greater than max");
 
 		IntDistribution dist(min, max);
 		return dist(generator);
@@ -22,7 +23,7 @@ namespace rj {
 	float Randomizer::real(const float &min, const float &max)
 	{
 		if (min > max)
-			return 0.f;
+			throw std::invalid_argument("min arg is greater than max");
 
 		RealDistribution dist(min, max);
 		return dist(generator);
