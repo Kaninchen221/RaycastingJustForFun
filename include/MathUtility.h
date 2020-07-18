@@ -25,6 +25,8 @@ namespace rj {
 
 	bool isParallel(const Line& lhs, const Line& rhs) noexcept;
 
+	float distance(const Point& lhs, const Point& rhs) noexcept;
+
 }
 
 #endif // !MATHUTILITY_H

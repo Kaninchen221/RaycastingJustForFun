@@ -77,4 +77,12 @@ namespace rj {
 		return (lhsRotation == rhsRotation);
 	}
 
+	float distance(const Point & lhs, const Point & rhs) noexcept
+	{
+		return std::sqrt(
+			std::pow(rhs.x - lhs.x, 2) +
+			std::pow(rhs.y - lhs.y, 2)
+		);
+	}
+
 }
