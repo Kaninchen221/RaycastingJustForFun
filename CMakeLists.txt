@@ -36,6 +36,8 @@ add_library(rjff_lib ${RJFF_LIB_TYPE}
 	src/Randomizer.cpp
 	include/Camera.h
 	src/Camera.cpp
+	include/Raycasting.h
+	src/Raycasting.cpp
 )
 
 # Create rjff library include dir
@@ -60,6 +62,8 @@ add_executable(rjff_tests
 	tests/src/UtilityTest.cpp
 	tests/src/CameraTest.h
 	tests/src/CameraTest.cpp
+	tests/src/RaycastingTest.h
+	tests/src/RaycastingTest.cpp
 )
 
 # Set linker language property
