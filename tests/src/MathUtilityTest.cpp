@@ -90,3 +90,21 @@ TEST_F(MathUtilityTest, isParallelLineLineTest) {
 
 	ASSERT_TRUE(rj::isParallel(firstLine, secondLine));
 }
+
+TEST_F(MathUtilityTest, distanceTest) {
+
+	auto firstPoint = rj::Point(10.f, 10.f);
+	auto secondPoint = rj::Point(15.f, 10.f);
+
+	auto distance = rj::distance(firstPoint, secondPoint);
+	float expected = 5.f;
+
+	ASSERT_FLOAT_EQ(distance, expected);
+
+	secondPoint = rj::Point(15.f, 15.f);
+	
+	distance = rj::distance(firstPoint, secondPoint);
+	expected = 5.f * std::sqrtf(2);
+
+	ASSERT_FLOAT_EQ(distance, expected);
+}
