@@ -1,6 +1,6 @@
 #include "CameraTest.h"
 
-#include "Point.h"
+#include "rjff/Point.h"
 
 TEST_F(CameraTest, fieldOfViewTest) {
 

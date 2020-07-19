@@ -1,4 +1,4 @@
-#include "..\include\MathUtility.h"
+#include "../include/rjff/MathUtility.h"
 
 namespace rj {
 

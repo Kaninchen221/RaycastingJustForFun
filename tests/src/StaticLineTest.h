@@ -1,7 +1,7 @@
 #ifndef STATICLINETEST_H
 #define STATICLINETEST_H
 
-#include "StaticLine.h"
+#include "rjff/StaticLine.h"
 
 #include "gtest/gtest.h"
 

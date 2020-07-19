@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-#include "Camera.h"
+#include "rjff/Camera.h"
 
 class CameraTest : public ::testing::Test {
 protected:

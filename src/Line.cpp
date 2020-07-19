@@ -1,8 +1,8 @@
-#include "../include/Line.h"
+#include "../include/rjff/Line.h"
 
-#include "../include/MathUtility.h"
-#include "../include/Utility.h"
-#include "../include/Point.h"
+#include "../include/rjff/MathUtility.h"
+#include "../include/rjff/Utility.h"
+#include "../include/rjff/Point.h"
 
 #include <cmath>
 

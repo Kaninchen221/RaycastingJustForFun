@@ -1,7 +1,7 @@
 #ifndef MATHUTILITYTEST_H
 #define MATHUTILITYTEST_H
 
-#include "MathUtility.h"
+#include "rjff/MathUtility.h"
 
 #include "gtest/gtest.h"
 

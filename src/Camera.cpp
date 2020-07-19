@@ -1,4 +1,4 @@
-#include "../include/Camera.h"
+#include "../include/rjff/Camera.h"
 
 namespace rj {
 

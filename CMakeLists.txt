@@ -22,21 +22,21 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Create rjff library
 add_library(rjff_lib ${RJFF_LIB_TYPE}
-	include/Core.h
-	include/Point.h
-	include/StaticLine.h
+	include/rjff/Core.h
+	include/rjff/Point.h
+	include/rjff/StaticLine.h
 	src/StaticLine.cpp
-	include/Line.h
+	include/rjff/Line.h
 	src/Line.cpp
-	include/MathUtility.h
+	include/rjff/MathUtility.h
 	src/MathUtility.cpp
-	include/Utility.h
+	include/rjff/Utility.h
 	src/Utility.cpp
-	include/Randomizer.h
+	include/rjff/Randomizer.h
 	src/Randomizer.cpp
-	include/Camera.h
+	include/rjff/Camera.h
 	src/Camera.cpp
-	include/Raycasting.h
+	include/rjff/Raycasting.h
 	src/Raycasting.cpp
 )
 

@@ -1,7 +1,7 @@
 #include "MathUtilityTest.h"
 
-#include "StaticLine.h"
-#include "Line.h"
+#include "rjff/StaticLine.h"
+#include "rjff/Line.h"
 
 TEST_F(MathUtilityTest, DegreesToRadians) {
 

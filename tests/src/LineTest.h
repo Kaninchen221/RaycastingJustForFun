@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-#include "Line.h"
+#include "rjff/Line.h"
 
 class LineTest : public ::testing::Test {
 protected:

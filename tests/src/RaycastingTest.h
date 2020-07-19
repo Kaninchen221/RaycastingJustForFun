@@ -3,8 +3,8 @@
 
 #include <gtest/gtest.h>
 
-#include "Raycasting.h"
-#include "Line.h"
+#include "rjff/Raycasting.h"
+#include "rjff/Line.h"
 
 class RaycastingTest : public ::testing::Test {
 protected:
