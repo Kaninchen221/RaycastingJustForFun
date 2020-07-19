@@ -4,6 +4,13 @@ namespace rj {
 
 	void Camera::setFieldOfView(float value) noexcept
 	{
+		if (value > 1.f) {
+			value = 1.f;
+		}
+		else if (value < 0.f) {
+			value = 0.f;
+		}
+
 		fieldOfView = value;
 	}
 
