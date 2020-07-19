@@ -2,14 +2,14 @@
 
 namespace rj {
 
-	void Camera::setHorizontalFieldOfView(float value) noexcept
+	void Camera::setFieldOfView(float value) noexcept
 	{
-		horizontalFieldOfView = value;
+		fieldOfView = value;
 	}
 
-	float Camera::getHorizontalFieldOfView() const noexcept
+	float Camera::getFieldOfView() const noexcept
 	{
-		return horizontalFieldOfView;
+		return fieldOfView;
 	}
 
 	void Camera::setPosition(Point position) noexcept

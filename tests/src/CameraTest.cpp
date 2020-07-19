@@ -6,8 +6,8 @@ TEST_F(CameraTest, fieldOfViewTest) {
 
 	float testValue = 75.231f;
 
-	camera.setHorizontalFieldOfView(testValue);
-	auto horizontalFieldOfView = camera.getHorizontalFieldOfView();
+	camera.setFieldOfView(testValue);
+	auto horizontalFieldOfView = camera.getFieldOfView();
 
 	ASSERT_FLOAT_EQ(testValue, horizontalFieldOfView);
 }

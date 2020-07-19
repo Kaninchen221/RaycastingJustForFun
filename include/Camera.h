@@ -17,8 +17,8 @@ namespace rj {
 
 		~Camera() = default;
 	
-		void setHorizontalFieldOfView(float value) noexcept;
-		float getHorizontalFieldOfView() const noexcept;
+		void setFieldOfView(float value) noexcept;
+		float getFieldOfView() const noexcept;
 
 		void setPosition(Point position) noexcept;
 		Point getPosition() const noexcept;
@@ -39,7 +39,7 @@ namespace rj {
 
 	private:
 	
-		float horizontalFieldOfView = 0.f;
+		float fieldOfView = 0.f;
 		Point position = { 0.f, 0.f };
 		size_t raysCount = 0u;
 		float raysLength = 0.f;
